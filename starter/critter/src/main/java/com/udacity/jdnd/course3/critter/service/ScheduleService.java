@@ -22,19 +22,15 @@ public class ScheduleService {
         return scheduleRepository.findAll();
     }
 
-    public Schedule getById(long scheduleId) {
-        return scheduleRepository.getOne(scheduleId);
-    }
-
     public List<Schedule> getScheduleByPetId(long id) {
-        return scheduleRepository.findByPetId(id);
+        return scheduleRepository.findByPetsId(id);
     }
 
     public List<Schedule> getScheduleByEmployeeId(long employeeId) {
-        return scheduleRepository.findByEmployeeId(employeeId);
+        return scheduleRepository.findByEmployeesId(employeeId);
     }
 
     public List<Schedule> getScheduleByCustomerId(long customerId) {
-        return scheduleRepository.findByCustomerId(customerId);
+        return scheduleRepository.findByPetsCustomerId(customerId);
     }
 }
