@@ -39,4 +39,11 @@ public class EmployeeService {
         return employeeSkills.containsAll(requiredSkills);
     }
 
+    public List<Employee> findEmployeesForService(Set<EmployeeSkill> requiredSkills, LocalDate requiredDate) {
+        return getAll()
+                .stream()
+                .filter(employee -> hasRequiredSkill(employee.getSkills(), requiredSkills))
+                .filter(employee -> isAvailable(employee.getDaysAvailable(), requiredDate))
+                .collect(Collectors.toList());
+    }
 }
