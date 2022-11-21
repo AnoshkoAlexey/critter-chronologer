@@ -1,5 +1,6 @@
 package com.udacity.jdnd.course3.critter.entity;
 
+import com.sun.istack.NotNull;
 import com.udacity.jdnd.course3.critter.pet.PetType;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,10 +14,11 @@ import java.time.LocalDate;
 @Setter
 public class Pet {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Nationalized
+    @NotNull
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -26,6 +28,6 @@ public class Pet {
 
     private String note;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, optional = false)
     private Customer customer;
 }

@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 public class Employee {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Nationalized
