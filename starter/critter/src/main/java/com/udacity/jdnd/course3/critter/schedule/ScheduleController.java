@@ -7,6 +7,7 @@ import com.udacity.jdnd.course3.critter.service.EmployeeService;
 import com.udacity.jdnd.course3.critter.service.PetService;
 import com.udacity.jdnd.course3.critter.service.ScheduleService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +21,13 @@ import java.util.stream.Collectors;
 @RequestMapping("/schedule")
 public class ScheduleController {
 
+    @Autowired
     private final ScheduleService scheduleService;
+
+    @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
     private PetService petService;
 
     public ScheduleController(ScheduleService scheduleService, EmployeeService employeeService, PetService petService) {
